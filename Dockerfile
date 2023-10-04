@@ -7,7 +7,6 @@
 FROM eclipse-temurin:17-jdk-alpine
 #installing curl command, due we will curl our api, will be run by aws service
 RUN apk add curl
-RUN yarn install --production
 #adding tempory volume
 VOLUME /tmp
 #exposing port 8080
