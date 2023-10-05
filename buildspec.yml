@@ -10,7 +10,7 @@ phases:
       # obtain from AWS ECR console - get URI Repository link by copying it
       # <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/service1
       - REPOSITORY_URI = 711638914386.dkr.ecr.us-east-2.amazonaws.com/spring-ecr
-      - export TAG="$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+      - export IMAGE_TAG="$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
       #IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
