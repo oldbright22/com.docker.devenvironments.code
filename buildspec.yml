@@ -4,10 +4,13 @@ phases:
     commands:
       - echo Logging in to Amazon ECR....
       - aws --version
+      # https://stackoverflow.com/questions/54232443/problem-in-getting-result-from-aws-ecr-get-login
       # obtain from AWS ECR console - click View Push Command button - inside below command can be found
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 711638914386.dkr.ecr.us-east-2.amazonaws.com
       # obtain from AWS ECR console - get URI Repository link by copying it
-      - REPOSITORY_URI 711638914386.dkr.ecr.us-east-2.amazonaws.com/spring-ecr
+      # <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/service1
+      - REPOSITORY_URI = 711638914386.dkr.ecr.us-east-2.amazonaws.com/spring-ecr
+      # export TAG="$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
