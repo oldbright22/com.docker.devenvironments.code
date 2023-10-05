@@ -2,7 +2,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      # pre-build
+      # pre-build 1
       - echo Logging in to Amazon ECR....
       - aws --version
       # https://stackoverflow.com/questions/54232443/problem-in-getting-result-from-aws-ecr-get-login
